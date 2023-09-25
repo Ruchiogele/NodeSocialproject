@@ -9,8 +9,11 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 // routes
-const postRoutes = require('./routes/post_routes');
-const authRoutes = require('./routes/auth');
+const postRoutes = require('./routes/post_route');
+const authRoutes = require('./routes/auth_route');
+const userRoutes = require('./routes/user_route');
+
+
 
 //DB connection
 mongoose.connect("mongodb+srv://osaruchiogele:bril35@myapiproj.u2zdsyq.mongodb.net/test",
@@ -30,6 +33,8 @@ app.use(expressValidator());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", postRoutes);
 app.use("/", authRoutes);
+app.use("/", userRoutes);
+
 
 
 
